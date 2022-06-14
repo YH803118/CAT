@@ -1,0 +1,9 @@
+{% extends 'index.html' %}
+{% block title %}결과{% endblock %}
+{%block main%}
+<h1>당신의 감정에 공감해줄 곡은?</h1>
+<iframe id="ytplayer align-items-center" type="text/html" width="720" height="405"
+src="https://www.youtube.com/embed/{{searches.video_id}}"
+frameborder="0" allowfullscreen></iframe>
+<h2>{{music.song_name}} - {{music.artist_name}}</h2>
+{%endblock%}

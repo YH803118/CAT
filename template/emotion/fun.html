@@ -1,0 +1,79 @@
+{%extends 'index.html'%}
+{%block title%}즐거움{%endblock%}
+{%load static%}
+{% block check %}
+
+{% endblock %}
+
+{%block content%}
+<form name="frm" method="POST"> 
+    {% csrf_token %}
+    <input type="hidden" name="fun" value="{{fun}}">
+    <input type="hidden" name="sad" value="{{sad}}">
+    <input type="hidden" name="anger" value="{{anger}}">
+    <input type="hidden" name="love" value="{{love}}">
+    <input type="hidden" name="lonely" value="{{lonely}}">
+    <input type="hidden" name="unrest" value="{{unrest}}">
+    <div class="container d-flex align-items-center flex-column">
+        <h1 class="masthead-heading mb-0">어떤 즐거운 기분인가요?</h1>
+        <div class="divider-custom divider-light">
+            <div class="divider-custom-line"></div>
+            <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
+            <div class="divider-custom-line"></div>
+        </div>
+    </div>
+<section class="page-section portfolio" id="portfolio">
+    <div class="container">
+<div class="row justify-content-center">
+    <div class="col-md-6 col-lg-4 mb-5">
+        <div class="portfolio-item mx-auto" data-toggle="modal" data-target="#portfolioModal1">
+            <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-75">
+               <a id="fun" class="nav-link2 emotionUp"><div class="portfolio-item-caption-content text-center text-white" ><i class="fa fa-check fa-10x"></i></div></a>
+            </div><img class="img-fluid" width="220" src="{% static 'assets/img/portfolio/기쁜.png' %}" />
+
+        </div>
+    </div>
+    <div class="col-md-6 col-lg-4 mb-5">
+        <div class="portfolio-item mx-auto" data-toggle="modal" data-target="#portfolioModal1">
+            <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-75">
+                <a id="fun" class="nav-link2 emotionUp"><div class="portfolio-item-caption-content text-center text-white" ><i class="fa fa-check fa-10x"></i></div></a>            
+            </div><img class="img-fluid" width="220" src="{% static 'assets/img/portfolio/신나는.png' %}" />
+        </div>
+    </div>
+    <div class="col-md-6 col-lg-4 mb-5">
+        <div class="portfolio-item mx-auto" data-toggle="modal" data-target="#portfolioModal2">
+            <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-75">
+                <a id="fun" class="nav-link2 emotionUp"><div class="portfolio-item-caption-content text-center text-white" ><i class="fa fa-check fa-10x"></i></div></a>            
+            </div><img class="img-fluid" width="220" src="{% static 'assets/img/portfolio/재미있는.png' %}" />
+        </div>
+    </div>
+    <div class="col-md-6 col-lg-4 mb-5">
+        <div class="portfolio-item mx-auto" data-toggle="modal" data-target="#portfolioModal3">
+            <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-75">
+                <a id="fun" class="nav-link2 emotionUp"><div class="portfolio-item-caption-content text-center text-white" ><i class="fa fa-check fa-10x"></i></div></a>            
+</div><img class="img-fluid" width="220" src="{% static 'assets/img/portfolio/기대되는.png' %}" />
+        </div>
+    </div>
+        <div class="col-md-6 col-lg-4 mb-5">
+        <div class="portfolio-item mx-auto" data-toggle="modal" data-target="#portfolioModal2">
+            <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-75">
+                <a id="fun" class="nav-link2 emotionUp"><div class="portfolio-item-caption-content text-center text-white" ><i class="fa fa-check fa-10x"></i></div></a>            
+            </div><img class="img-fluid" width="220" src="{% static 'assets/img/portfolio/황홀한.png' %}" />
+        </div>
+    </div>
+        <div class="col-md-6 col-lg-4 mb-5">
+        <div class="portfolio-item mx-auto" data-toggle="modal" data-target="#portfolioModal2">
+            <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-75">
+                <a id="fun" class="nav-link2 emotionUp"><div class="portfolio-item-caption-content text-center text-white" ><i class="fa fa-check fa-10x"></i></div></a>            
+            </div><img class="img-fluid" width="220" src="{% static 'assets/img/portfolio/감사한.png' %}" />
+        </div>
+    </div>
+</div>
+<div class="container d-flex align-items-center flex-column">
+    <input id="submit" type="button" value="다음"><input id="result" type="button" value="결과 보기">
+</form>
+    </div>
+</div>
+</div>
+</section>
+{%endblock%}

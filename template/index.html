@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        {% load static %}
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta name="description" content="">
+        <meta name="author" content="">
+        <title>감정기반 음악 추천 프로그램</title>
+        <script>
+        </script>
+        {%block check%}
+        <script>
+        </script>
+        {%endblock%}
+        <script defer src="{% static 'js/scripts.js'%}"></script>
+        <!-- Font Awesome icons (free version)-->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js" crossorigin="anonymous"></script>
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link rel="stylesheet" href="{% static 'css/styles.css' %}" >
+        <!-- Fonts CSS-->
+        <link rel="stylesheet" href="{% static 'css/heading.css' %}">
+        <link rel="stylesheet" href="{% static 'css/body.css' %}">
+    </head>
+    <body id="page-top">
+        <nav class="navbar navbar-expand-lg bg-secondary fixed-top" id="mainNav">
+            <div class="container"><a class="navbar-brand js-scroll-trigger" href="/">처음으로</a>
+                
+            </div>
+        </nav>
+        <header class="masthead bg-primary text-white text-center">
+            <div class="container d-flex align-items-center flex-column">
+                <!-- Masthead Avatar Image--><img class="masthead-avatar mb-5" src="{% static 'assets/img/로고.png' %}" alt="">
+                <!-- Masthead Heading-->
+                <h1 class="masthead-heading mb-0">묘한기분(CAT MUSIC)</h1><br>
+                <!-- Icon Divider-->
+                <div class="divider-custom divider-light">
+                    <div class="divider-custom-line"></div>
+                    <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
+                    <div class="divider-custom-line"></div>
+                </div>
+                <!-- Masthead Subheading-->
+                <p class="pre-wrap masthead-subheading font-weight-light mb-0">감정에 따른 음악추천</p>
+		<a id="start" class="align-itmes-center py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#portfolio"><input type="button" value="시작하기"></a>
+            </div>
+        </header>
+        
+        <section class="page-section portfolio" id="portfolio">
+            {%block main%}
+            <form name="frm" method="POST"> 
+                {% csrf_token %}
+            <div class="container">
+                <!-- Portfolio Section Heading-->
+                <div class="text-center">
+                    <h2 class="page-section-heading text-secondary mb-0 d-inline-block">기분 선택하기</h2>
+                </div>
+                <!-- Icon Divider-->
+                <div class="divider-custom">
+                    <div class="divider-custom-line"></div>
+                    <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
+                    <div class="divider-custom-line"></div>
+                </div>
+                <!-- Portfolio Grid Items-->
+                <div class="row justify-content-center">
+                    <!-- Portfolio Items-->
+                    <div class="col-md-6 col-lg-4 mb-5">
+                        <div class="portfolio-item mx-auto" data-toggle="modal" data-target="#portfolioModal1">
+                            <div id="funCaption" class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-75">
+                                <a name="fun" class="nav-link emotion" ><div class="portfolio-item-caption-content text-center text-white"><i class="fa fa-check fa-10x"></i>
+                                    <input type="hidden" name="fun" value="{{fun}}">   </div></a>
+                            </div><img class="img-fluid" width="250" src="{% static 'assets/img/portfolio/즐거움.png' %}" />
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-4 mb-5">
+                        <div class="portfolio-item mx-auto" data-toggle="modal" data-target="#portfolioModal1">
+                            <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-75">
+                                <a name="sad" class="nav-link emotion" ><div class="portfolio-item-caption-content text-center text-white"><i class="fa fa-check fa-10x"></i>
+                                    <input type="hidden" name="sad" value="{{sad}}">   </div></a>
+                            </div><img class="img-fluid" width="250" src="{% static 'assets/img/portfolio/슬픔.png' %}" />
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-4 mb-5">
+                        <div class="portfolio-item mx-auto" data-toggle="modal" data-target="#portfolioModal1">
+                            <div  class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-75">
+                                <a name="anger" class="nav-link emotion" ><div class="portfolio-item-caption-content text-center text-white"><i class="fa fa-check fa-10x"></i>
+                                    <input type="hidden" name="anger" value="{{anger}}">   </div></a>
+                            </div><img class="img-fluid" width="250" src="{% static 'assets/img/portfolio/분노.png' %}" />
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-4 mb-5">
+                        <div class="portfolio-item mx-auto" data-toggle="modal" data-target="#portfolioModal1">
+                            <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-75">
+                                <a  name="love" class="nav-link emotion" ><div class="portfolio-item-caption-content text-center text-white"><i class="fa fa-check fa-10x"></i>
+                                    <input type="hidden" name="love" value="{{love}}">   </div></a>
+                            </div><img class="img-fluid" width="250" src="{% static 'assets/img/portfolio/사랑.png' %}" />
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-4 mb-5">
+                        <div class="portfolio-item mx-auto" data-toggle="modal" data-target="#portfolioModal1">
+                            <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-75">
+                                <a name="lonely" class="nav-link emotion" ><div class="portfolio-item-caption-content text-center text-white"><i class="fa fa-check fa-10x"></i>
+                                    <input type="hidden" name="lonely" value="{{lonely}}">   </div></a>
+                            </div><img class="img-fluid" width="250" src="{% static 'assets/img/portfolio/외로움.png' %}" />
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-4 mb-5">
+                        <div class="portfolio-item mx-auto" data-toggle="modal" data-target="#portfolioModal1">
+                            <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-75">
+                                <a name="unrest" class="nav-link emotion" ><div class="portfolio-item-caption-content text-center text-white"><i class="fa fa-check fa-10x"></i>
+                                    <input type="hidden" name="unrest" value="{{unrest}}">   </div></a>
+                            </div><img class="img-fluid" width="250" src="{% static 'assets/img/portfolio/불안.png' %}" />
+                        </div>
+                    </div>
+            </div>
+            <div class="container d-flex align-iptems-center flex-column">
+                </div>
+            </form>
+            {%endblock%}
+        </section>
+        <section class="page-section portfolio" id="down">
+            <div class="container">
+        {% block content %}
+        {% endblock %}
+            </div>
+        </section>
+    
+        <footer class="footer text-center">
+            <div class="container">
+                <div class="row">
+                    <!-- Footer Location-->
+                    <div class="col-lg-4 mb-5 mb-lg-0">
+                        <h4 class="mb-4">LOCATION</h4>
+                        <p class="pre-wrap lead mb-0">2215 John Daniel Drive
+Clark, MO 65243</p>
+                    </div>
+                    <!-- Footer Social Icons-->
+                    <div class="col-lg-4 mb-5 mb-lg-0">
+                        <h4 class="mb-4">AROUND THE WEB</h4><a class="btn btn-outline-light btn-social mx-1" href="https://www.facebook.com/StartBootstrap"><i class="fab fa-fw fa-facebook-f"></i></a><a class="btn btn-outline-light btn-social mx-1" href="https://www.twitter.com/sbootstrap"><i class="fab fa-fw fa-twitter"></i></a><a class="btn btn-outline-light btn-social mx-1" href="https://www.linkedin.com/in/startbootstrap"><i class="fab fa-fw fa-linkedin-in"></i></a><a class="btn btn-outline-light btn-social mx-1" href="https://www.dribble.com/startbootstrap"><i class="fab fa-fw fa-dribbble"></i></a>
+                    </div>
+                    <!-- Footer About Text-->
+                    <div class="col-lg-4">
+                        <h4 class="mb-4">ABOUT FREELANCER</h4>
+                        <p class="pre-wrap lead mb-0">Freelance is a free to use, MIT licensed Bootstrap theme created by Start Bootstrap</p>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <!-- Copyright Section-->
+        <section class="copyright py-4 text-center text-white">
+            <div class="container"><small class="pre-wrap">Copyright © Your Website 2020</small></div>
+        </section>
+        <!-- Scroll to Top Button (Only visible on small and extra-small screen sizes)-->
+        <div class="scroll-to-top d-lg-none position-fixed"><a class="js-scroll-trigger d-block text-center text-white rounded" href="#page-top"><i class="fa fa-chevron-up"></i></a></div>
+        <!-- Bootstrap core JS-->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+        <!-- Third party plugin JS-->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
+        <!-- Core theme JS-->
+    </body>
+</html>

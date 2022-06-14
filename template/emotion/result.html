@@ -1,0 +1,8 @@
+{% extends 'index.html' %}
+{% block title %}결과{% endblock %}
+{%block main%}
+<form name="frmResult" action="/emotion/final" method="post">{% csrf_token %}
+<input type="hidden" name="song_name" value="{{result.song_name}}">
+<input type="hidden" name="artist_name" value="{{result.artist_name}}">
+</form>
+{%endblock%}
